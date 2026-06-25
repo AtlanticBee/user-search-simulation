@@ -3,36 +3,7 @@ import urllib.request
 import urllib.error
 import json
 
-# Load data
-
-def parse_csv(file_path,column_count,data_types):
-   with open(file_path,mode='r',encoding='utf-8') as file:
-      headers = [x.strip() for x in file.readline().split(',')]
-      lines = list(file)
-      if not lines:
-         raise Exception(f'CSV {file_path} has no data. Aborting.')
-      data = {i:[] for i in headers}
-      data['size'] = len(lines)
-      for row in lines:
-         row_data = [elem.strip() for elem in row.split(',')]
-         for i in range(column_count):
-            data[headers[i]].append(data_types[i](row_data[i]))
-      return data
-
-def parse_txt_list(file_path,data_type):
-   with open(file_path,mode='r',encoding='utf-8') as file:
-      lines = [data_type(x.strip()) for x in file.readlines()]
-      return lines
-
-def get_text_file(file_path):
-   with open(file_path,mode='r',encoding='utf-8') as file:
-      return file.read()
-
-def get_random_age(data):
-   num = random.random()
-   for idx,val in enumerate(data['cumulative_probability']):
-      if num < val:
-         return data['age'][idx]
+from helper_functions import *
 
 def get_random_name(names,distribution,age,current_year=2026):
    # Each decade has 99 of the most popular names in order of popularity (descending)
@@ -72,33 +43,38 @@ def get_random_location(region_data,settlement_data):
    return result
    
 
-age_distribution = parse_csv(file_path='data/age.csv',column_count=2,data_types=[int,float])
-weekdays_list = parse_txt_list('data/weekdays.txt',str)
-months_list = parse_txt_list('data/months.txt',str)
-name_distribution = parse_txt_list('data/name_probabilities.txt',float)
+age_distribution = load_csv(file_path='data/age.csv',data_types=[int,float])
+weekdays_list = load_list('data/weekdays.txt',str)
+months_list = load_list('data/months.txt',str)
+name_distribution = load_list('data/name_probabilities.txt',float)
 name_decades = [1930,1940,1950,1960,1970,1980,1990,2000,2010,2020]
 female_names = {decade:[] for decade in name_decades}
 male_names = {decade:[] for decade in name_decades}
-good_moods = parse_txt_list('data/moods_good.txt',str)
-bad_moods = parse_txt_list('data/moods_bad.txt',str)
-locations = parse_csv(file_path='data/england_regions.csv',column_count=4,data_types=[str,str,float,float])
-settlement_types = parse_csv(file_path='data/non_city_settlements.csv',column_count=2,data_types=[str,float])
-myprotein_homepage = get_text_file('data/homepage.txt')
+good_moods = load_list('data/moods_good.txt',str)
+bad_moods = load_list('data/moods_bad.txt',str)
+locations = load_csv(file_path='data/england_regions.csv',data_types=[str,str,float,float])
+settlement_types = load_csv(file_path='data/non_city_settlements.csv',data_types=[str,float])
+myprotein_homepage = load_text('data/homepage.txt')
 
 for decade in name_decades:
    male_file = "data/male_names_" + str(decade) + ".txt"
    female_file = "data/female_names_" + str(decade) + ".txt"
-   male_names[decade] = parse_txt_list(male_file,str)
-   female_names[decade] = parse_txt_list(female_file,str)
+   male_names[decade] = load_list(male_file,str)
+   female_names[decade] = load_list(female_file,str)
 
 simulation_size = 20
-ages = []
 sexes = []
 months = []
 weekdays = []
 names = []
 moods = []
 home_locations = []
+
+ages = pick_random_values(
+   values=age_distribution['age'],
+   cumulative_probabilities=age_distribution['cumulative_probability'],
+   quantity=simulation_size
+)
 
 while len(ages) < simulation_size:
    val = get_random_age(age_distribution)
