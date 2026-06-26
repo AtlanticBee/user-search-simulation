@@ -5,18 +5,14 @@ import json
 
 from helper_functions import *
 
-def get_random_name(names,distribution,age,current_year=2026):
+def get_random_name(sex,age,values,distribution):
    # Each decade has 99 of the most popular names in order of popularity (descending)
    # We generate a random probability between 0 and 1 and extract the name
    num = random.random()
-   decade = (current_year - age // 10) * 10
-   if decade < 1930:
-      decade = 1930
-   if decade > 2020:
-      decade = 2020
+   decade = ((2026 - age) // 10) * 10 # Data was generated such that the oldest we can go back is from 2026 to 2030
    for idx,val in enumerate(distribution):
       if num < val:
-         return names[decade][idx]
+         return values[decade][sex][idx]
 
 def get_random_location(region_data,settlement_data):
    result = {}
@@ -48,8 +44,7 @@ weekdays_list = load_list('data/weekdays.txt',str)
 months_list = load_list('data/months.txt',str)
 name_distribution = load_list('data/name_probabilities.txt',float)
 name_decades = [1930,1940,1950,1960,1970,1980,1990,2000,2010,2020]
-female_names = {decade:[] for decade in name_decades}
-male_names = {decade:[] for decade in name_decades}
+name_options = {decade:{'M':[],'F':[]} for decade in name_decades}
 good_moods = load_list('data/moods_good.txt',str)
 bad_moods = load_list('data/moods_bad.txt',str)
 locations = load_csv(file_path='data/england_regions.csv',data_types=[str,str,float,float])
@@ -59,27 +54,26 @@ myprotein_homepage = load_text('data/homepage.txt')
 for decade in name_decades:
    male_file = "data/male_names_" + str(decade) + ".txt"
    female_file = "data/female_names_" + str(decade) + ".txt"
-   male_names[decade] = load_list(male_file,str)
-   female_names[decade] = load_list(female_file,str)
+   name_options[decade]['M'] = load_list(male_file,str)
+   name_options[decade]['F'] = load_list(female_file,str)
 
 simulation_size = 20
 sexes = []
 months = []
 weekdays = []
-names = []
 moods = []
 home_locations = []
+names = []
 
+# No later than 2011 (16 years old)
+# No earlier than 1930 (96 years old)
 ages = pick_random_values(
    values=age_distribution['age'],
    cumulative_probabilities=age_distribution['cumulative_probability'],
-   quantity=simulation_size
+   quantity=simulation_size,
+   lower_lim=0.24276, 
+   upper_lim=0.99512 
 )
-
-while len(ages) < simulation_size:
-   val = get_random_age(age_distribution)
-   if val > 15:         # Limiting lower age to 16
-      ages.append(val)
 
 while len(sexes) < simulation_size:
    sexes.append(random.choice(['M','F']))
@@ -91,11 +85,11 @@ while len(sexes) < simulation_size:
    moods.append(final_mood)
    home_locations.append(get_random_location(locations,settlement_types))
 
+# The names are dependent on age and sex so for now I'm leaving it with a custom picker function
+# Consider refactoring with a picker that takes dependencies into account?
+
 for i in range(0,simulation_size):
-   if sexes[i] == 'M':
-      names.append(get_random_name(male_names,name_distribution,ages[i]))
-   else:
-      names.append(get_random_name(female_names,name_distribution,ages[i]))
+   names.append(get_random_name(sex=sexes[i],age=ages[i],values=name_options,distribution=name_distribution))
 
 prompts = []
 

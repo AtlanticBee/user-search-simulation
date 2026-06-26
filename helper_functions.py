@@ -38,9 +38,11 @@ def load_text(file_path):
 # Pick random value(s) from list knowing the weights (cumulative probability) of each index
 # If no weighting is given, all values are given equal weights
 # If no values are given, the random number is returned instead
+# To restrict the dataset, you can give it lower and upper bounds.
+# Apparently this could be done more efficiently with a binary tree FYI
 # Returns list.
 
-def pick_random_values(values=[], cumulative_probabilities=[], quantity=1):
+def pick_random_values(values=[], cumulative_probabilities=[], quantity=1, lower_lim=0, upper_lim=1):
    result = []
 
    if not quantity or quantity < 0:
@@ -57,7 +59,7 @@ def pick_random_values(values=[], cumulative_probabilities=[], quantity=1):
       return result
    
    while len(result) < quantity:
-      num = random.random()
+      num = random.uniform(lower_lim, upper_lim)
       for idx,val in enumerate(cumulative_probabilities):
          if num < val:
             result.append(values[idx])
