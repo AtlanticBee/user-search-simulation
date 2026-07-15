@@ -1,0 +1,4 @@
+town
+small town
+village
+hamlet
