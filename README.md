@@ -10,15 +10,32 @@ The basic idea behind this repository is to:
 ## Running the script
 
 I have kept the Python script using only built-in modules, so any machine running Python 3 should be able to run this.
-I also had to:
-- Install Ollama, but note I didn't get the LLM model GGUF file (a compressed LLM file) from Ollama due to network restrictions
-- I downloaded Phi4-Mini from Huggingface, one of the weirdest websites I've ever used!
 
+Initially I worked on a shared machine with network restrictions so I had to download the GGUF file via HuggingFace (a very strange website, but apparently the standard source for GGUF files and other LLMs). Now however on my own machine I'm just using Ollama's CLI and then using the default Phi4:Mini model.
+
+If you are downloading the LLM from HuggingFace, download this version:
 [Link-Phi4-Mini](https://huggingface.co/bartowski/microsoft_Phi-4-mini-instruct-GGUF/tree/main)
 
-- You want the download for the model: `microsoft_Phi-4-mini-instruct-Q4_K_M.gguf` - ideally into this repository
+You should make sure the file is then downloaded into the same folder as this repository.
+DO NOT commit the LLM to the commit history. It is not source code.
+
 - I've made the Modelfile (no extension) to direct ollama to the gguf file
-- Now run ```ollama create phi4-sim -f ./Modelfile``` to tell ollama your nickname for the model and its location
+- Now run ```ollama create phi4-mini -f ./Modelfile``` to tell ollama your nickname for the model and its location
 - If the Model you downloaded has been saved elsewhere, modify the Modelfile to point to wherever your model is saved
 - Then run the command ```ollama serve``` which serves the LLM on localhost port 11434. Key point: this is served with NO CONTEXT (turns out without it, LLMs are very unhelpful - hence a great deal of frustration with the repository involves tweaking the initial context we provide it)
 - Note you can also play with the chat version separately via ollama by running ```ollama run phi4-sim``` which includes ollama's chat context
+
+If you're just using Ollama's LLMs, then do this:
+- Run ```ollama run phi4-mini```
+
+This command automatically runs and serves the LLM on port 11434 and can be interacted with e.g.
+
+```
+curl http://localhost:11434/api/chat -d '{
+  "model": "phi4-mini",
+  "messages": [
+    { "role": "user", "content": "Explain quantum computing in one sentence." }
+  ],
+  "stream": false
+}'
+```

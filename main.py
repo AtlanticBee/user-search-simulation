@@ -148,7 +148,7 @@ for idx, prompt in enumerate(prompts):
    ]
 
    payload = {
-      "model": "phi4-sim",
+      "model": "phi4-mini",
       "messages": payload_messages, # Pass the message thread history
       "stream": False,
       "options": {
