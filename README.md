@@ -45,7 +45,7 @@ Where:
 
 ### For those without access to Ollama models
 
-Initially I worked on a shared machine with network restrictions so I had to download the GGUF file via HuggingFace (a very strange website, but apparently the standard source for GGUF files and other LLMs). If you share this restriction with Ollama, try downloading from Huggingface too here:
+Initially I worked on a shared machine with network restrictions so I had to download the GGUF file via HuggingFace (a very strange website, but apparently the standard source for GGUF files and other LLMs). If you shalso have this restriction with Ollama, try downloading from Huggingface too here:
 
 [Link-Phi4-Mini](https://huggingface.co/bartowski/microsoft_Phi-4-mini-instruct-GGUF/tree/main)
 
@@ -61,10 +61,7 @@ Once downloaded, you will need to make use of the Modelfile (which just has save
 Note, if you'd like to play with the interactive chat version of a model, use the command:
 ```ollama run X``` where "X" is the name of your model
 
-If you're just using Ollama's LLMs, then do this:
-- Run ```ollama run phi4-mini```
-
-This command automatically runs and serves the LLM on port 11434 and can be interacted with e.g.
+If you'd like to test the availability of the Ollama model try this shell command:
 
 ```
 curl http://localhost:11434/api/chat -d '{
