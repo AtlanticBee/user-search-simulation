@@ -20,7 +20,7 @@ You should make sure the file is then downloaded into the same folder as this re
 DO NOT commit the LLM to the commit history. It is not source code.
 
 - I've made the Modelfile (no extension) to direct ollama to the gguf file
-- Now run ```ollama create phi4-mini -f ./Modelfile``` to tell ollama your nickname for the model and its location
+- Now run ```ollama create phi4-mini -f ./Modelfile``` to tell ollama your nickname for the model and its location - the Modelfile should contain: FROM microsoft_Phi-4-mini-instruct-Q4_K_M.gguf
 - If the Model you downloaded has been saved elsewhere, modify the Modelfile to point to wherever your model is saved
 - Then run the command ```ollama serve``` which serves the LLM on localhost port 11434. Key point: this is served with NO CONTEXT (turns out without it, LLMs are very unhelpful - hence a great deal of frustration with the repository involves tweaking the initial context we provide it)
 - Note you can also play with the chat version separately via ollama by running ```ollama run phi4-sim``` which includes ollama's chat context

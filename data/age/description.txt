@@ -1,0 +1,3 @@
+Standard qprobs.
+A list of ages 1 - 100 with their cumulative probabilities.
+Taken from Office of National Statistics, 2021.

@@ -1,0 +1,2 @@
+List of non-city settlement types and their cumulative probabilities.
+Complete guesswork!

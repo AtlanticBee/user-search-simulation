@@ -1,0 +1,5 @@
+A list of regions in England, with levels of urbanisation and population statistics.
+The cumulative probability of a person living in each region is in qprobs.txt
+The probability of being in an urban environment in each region is in urbanisation_probs.txt
+The conversational name for the region when describing someone living there is in conversational_names.txt
+The regions are listed in values.txt

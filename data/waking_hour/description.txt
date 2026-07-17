@@ -1,0 +1,2 @@
+List of hours in the day and the cumulative probability of someone being awake.
+Extracted from google search.

@@ -1,0 +1,2 @@
+Each decade contains a list of male and female names in descending rank order.
+The ONS sources for each deacde showed that names roughly had the same probabilities by rank decade by decade, so a shared cumulative probability has been given for all names and decades.
