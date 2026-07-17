@@ -1,0 +1,18 @@
+This was the first experiment with a low temperature of 0.1
+
+'"protein supplements for seniors fitness equipment running gear"',
+'"protein supplements for seniors fitness equipment running gear"',
+'"love yoga equipment" "protein supplements for women under 40" "sports clothing active lifestyle"',
+'"protein supplements for seniors fitness equipment running gear"',
+'"protein supplements running gear"',
+'"senior fitness equipment protein supplements running shoes"',
+'"protein supplements running gear"',
+'"protein supplements running gear"',
+'"protein supplements for anxiety relief" "sports clothing comfort fit" "home gym equipment essentials"',
+'"protein supplements running gear"'
+
+They appear relatively realistic and not too long (compare with a temperature of 0.9).
+However:
+- Some responses appear to be multiple searches at once?
+- There is a lot of repetition (to be expected with such a low temperature)
+- The lengths of the searches seem unreasonably long for a search bar entry in some cases

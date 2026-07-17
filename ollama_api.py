@@ -2,7 +2,7 @@ import urllib.request
 import urllib.error
 import json
 
-def get_llm_response(user_query, system_query, description="a user"):
+def get_llm_response(user_query, system_query, temperature, description="a user", num_predict=0):
 
     base_url = "http://localhost:11434/api/chat"
 

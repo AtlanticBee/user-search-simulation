@@ -1,0 +1,49 @@
+My second experiment was with a temperature of 0.9 (very high randomness).
+Everything else was kept the same:
+
+"protein powder running shoes"',
+'protein supplements protein powder resistance bands activewear running shoes fitness tracker',
+'"protein powder running shorts"',
+'sports gear, protein powder, running shoes',
+'Protein supplements + workout routine + humility motivation',
+'"Protein supplements for senior fitness"',
+'"protein supplements high protein bars activewear running shoes fitness tracker yoga mat gym gear essentials"',
+'Dylan protein supplements running shorts',
+'"Senior fitness equipment protein supplements warm-up clothing"',
+'sports protein powder running shoes activewear'
+
+Some notes:
+- There's more variation in the use of speech marks
+- In example eight, it actually uses the name of the user - unrealistic
+- Some of the searches appear far too long - most people enter just a few keywords?
+
+The complete set of queries is below:
+
+Imagine I was browsing a sports E-commerce website. I'm called Adam, I'm 29 years old and I live in North West England. Today, I'm feeling unbothered. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Kevin, I'm 53 years old and I live in Yorkshire. Today, I'm feeling OK. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Naomi, I'm 39 years old and I live in North West England. Today, I'm feeling OK. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Mohammed, I'm 17 years old and I live in North West England. Today, I'm feeling OK. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Lauren, I'm 31 years old and I live in North West England. Today, I'm feeling humbled. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Sharon, I'm 61 years old and I live in North West England. Today, I'm feeling fine. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Bethany, I'm 36 years old and I live in Yorkshire. Today, I'm feeling determined. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Dylan, I'm 19 years old and I live in the South West of England. Today, I'm feeling unbothered. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Kirsty, I'm 54 years old and I live in Yorkshire. Today, I'm feeling grouchy. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
+...
+Sending query for A user with the prompt: 
+    Imagine I was browsing a sports E-commerce website. I'm called Danielle, I'm 31 years old and I live in the East Midlands. Today, I'm feeling fine. I move my fingers to the keyboard and begin to type. What do I type in the search bar?
