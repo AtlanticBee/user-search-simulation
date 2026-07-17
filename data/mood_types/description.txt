@@ -1,0 +1,1 @@
+A very rough estimate (from google search) of the chance someone is feeling neutral, good or bad respectively - values and their cumulative probabilities.

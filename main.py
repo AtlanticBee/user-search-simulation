@@ -5,11 +5,9 @@
 
 # from helper_functions import *
 
-from api_functions import get_llm_response
+from ollama_api import get_llm_response
 
-response = get_llm_response("Hello, how are you doing today?", "Example Query")
 
-print(response)
 
 # def get_random_name(sex,age,values,distribution):
 #    # Each decade has 99 of the most popular names in order of popularity (descending)

@@ -1,0 +1,3 @@
+List of daily occupations that might take up time in someone's life.
+Pretty rough guess using google searches.
+Split by age group - child, adult, elderly.
