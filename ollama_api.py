@@ -2,7 +2,7 @@ import urllib.request
 import urllib.error
 import json
 
-def get_llm_response(query, description="a user"):
+def get_llm_response(user_query, system_query, description="a user"):
 
     base_url = "http://localhost:11434/api/chat"
 
@@ -12,11 +12,11 @@ def get_llm_response(query, description="a user"):
         "messages": [
             {
                 "role": "system",
-                "content": "You are a direct conversational assistant. Do NOT use any thinking tags, do not output internal reasoning, and do not write or invent subsequent instructions. Respond only with the immediate conversational answer."
+                "content": system_query
             },
             {
                 "role":"user",
-                "content":query
+                "content":user_query
             }
         ],
         "stream":False,     # We're not sending over characters as they're typed.
