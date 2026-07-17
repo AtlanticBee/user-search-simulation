@@ -6,7 +6,14 @@
 # from helper_functions import *
 
 from ollama_api import get_llm_response
+from data_loader import load_all_data
 
+data = load_all_data()
+simulation_size = 10
+users = []
+
+for i in range(10):
+    mood = data
 
 
 # def get_random_name(sex,age,values,distribution):
